@@ -3,17 +3,12 @@
 MYSELF="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
 
 if [ -z "${CERTBOT_DOMAIN}" ]; then
-  mkdir -p "${PWD}/letsencrypt"
-
   certbot certonly \
     --non-interactive \
     --manual \
     --manual-auth-hook "${MYSELF}" \
     --manual-cleanup-hook "${MYSELF}" \
     --preferred-challenge dns \
-    --config-dir "${PWD}/letsencrypt" \
-    --work-dir "${PWD}/letsencrypt" \
-    --logs-dir "${PWD}/letsencrypt" \
     "$@"
 
 else
