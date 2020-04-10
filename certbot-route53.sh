@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 MYSELF="$(cd "$(dirname "$0")" && pwd)/$(basename "$0")"
 
 if [ -z "${CERTBOT_DOMAIN}" ]; then
-  certbot certonly \
+  /usr/local/bin/certbot certonly \
     --non-interactive \
     --manual \
     --manual-auth-hook "${MYSELF}" \
